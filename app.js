@@ -4,7 +4,16 @@ const firstNameEl = document.getElementById('first-name')
 const lastNameEl = document.getElementById('last-name')
 const passwordEl = document.getElementById('password')
 const confirmPasswordEl = document.getElementById('confirm_password')
+const checkBoxEl = document.getElementById('accept')
 const button = document.querySelector('button')
+const togglePassword = document.getElementsByClassName('togglePassword')
+const passwordEye = document.getElementById('password_eye-fill')
+const passwordEyeSlash = document.getElementById('password_eye-slash-fill')
+const confirmPasswordEye = document.getElementById('confirm-password_eye-fill')
+const confirmPasswordEyeSlash = document.getElementById('confirm-password_eye-slash-fill')
+const checkboxBox = document.querySelector('.checkbox_box')
+const signupText = document.querySelector('.sign-up')
+console.log(signupText);
 
 form.addEventListener('submit', e => {
     // prevent the form from submitting
@@ -15,13 +24,15 @@ form.addEventListener('submit', e => {
         isLastnameValid = checkLastname(),
         isEmailValid = checkEmail(),
         isPasswordValid = checkPassword(),
-        isConfirmPasswordValid = checkConfirmPassword()
+        isConfirmPasswordValid = checkConfirmPassword(),
+        isCheckboxValid = checkBox()
 
     let isFormValid = isFirstnameValid &&
         isLastnameValid &&
         isEmailValid &&
         isPasswordValid &&
-        isConfirmPasswordValid
+        isConfirmPasswordValid &&
+        isCheckboxValid
 
         // submit to the server if the form is valid
         if (isFormValid) {
@@ -53,7 +64,10 @@ const showError = (input, message) => {
     const formField = input.parentElement
     // add the error class
     formField.classList.remove('text-dark')
-    formField.classList.add('text-danger')
+    // formField.classList.add('text-danger')
+
+    const inputEl = formField.querySelector('input')
+    inputEl.classList.add('border', 'border-2', 'border-danger')
 
     // show the error msg
     const error = formField.querySelector('small')
@@ -67,6 +81,9 @@ const showSuccess = (input) => {
     // remove the error class
     formField.classList.remove('text-danger')
     formField.classList.add('text-dark')
+
+    const inputEl = formField.querySelector('input')
+    inputEl.classList.remove('border', 'border-2', 'border-danger')
 
     // show the error msg
     const error = formField.querySelector('small')
@@ -152,3 +169,39 @@ const checkConfirmPassword = () => {
     }
     return valid
 }
+
+// VALIDATE THE CHECKBOX
+const checkBox = () => {
+    let valid = false
+
+    if (checkBoxEl.checked == false) {
+        // showError(checkboxBox, signupText.textContent = 'You must agree to the terms first')
+        checkboxBox.classList.add('border-danger')
+        signupText.textContent = 'You must agree to the terms first'
+    } else {
+        checkboxBox.classList.remove('border-danger')
+        signupText.textContent = "Signing up for an account means you agree to the Privacy Policy \n and Terms of Service."
+        valid = true
+    }
+    return valid
+}
+
+togglePassword[0].addEventListener('click', () => {
+    // toggle the type attribute
+    const type = passwordEl.getAttribute('type') === 'password' ? 'text' : 'password'
+    passwordEl.setAttribute('type', type)
+
+    // toggle the icon
+    passwordEye.classList.toggle('d-none')
+    passwordEyeSlash.classList.toggle('d-none')
+})
+
+togglePassword[1].addEventListener('click', () => {
+    // toggle the type attribute
+    const type = confirmPasswordEl.getAttribute('type') === 'password' ? 'text' : 'password'
+    confirmPasswordEl.setAttribute('type', type)
+
+    // toggle the icon
+    confirmPasswordEye.classList.toggle('d-none')
+    confirmPasswordEyeSlash.classList.toggle('d-none')
+})
