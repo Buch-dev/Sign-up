@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="dist/css/main.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="node_modules/bootstrap-icons/icons/" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <title>Signup</title>
     <script src="app.js" defer></script>
   </head>
   <body class="">
     <main class="container">
-      <h1
-        class="text-secondary text-center text-md-start mb-5 pt-5 font-weight-bold logo"
-      >
-        LOGO
-      </h1>
+      <div class="logo w-100 text-center text-md-start my-5">
+        <img src="icons/Vector.png" alt="">
+        <img src="icons/Vector-1.png" alt="">
+      </div>
 
       <div
         class="d-flex justify-content-center align-items-center flex-column mb-5 div"
@@ -83,20 +83,7 @@
                 placeholder="Enter password"
                 required
               />
-              <div class="togglePassword">
-                <img
-                  src="node_modules/bootstrap-icons/icons/eye-fill.svg"
-                  alt=""
-                  class="eye-fill text-primary"
-                  id="password_eye-fill"
-                />
-                <img
-                  src="node_modules/bootstrap-icons/icons/eye-slash-fill.svg"
-                  alt=""
-                  class="eye-slash-fill d-none"
-                  id="password_eye-slash-fill"
-                />
-              </div>
+                <i class="bi bi-eye-slash text-primary togglePassword"></i>
               <small class="text-danger"></small>
             </div>
           </div>
@@ -114,20 +101,7 @@
                 placeholder="Enter password"
                 required
               />
-              <div class="togglePassword">
-                <img
-                  src="node_modules/bootstrap-icons/icons/eye-fill.svg"
-                  alt=""
-                  class="eye-fill"
-                  id="confirm-password_eye-fill"
-                />
-                <img
-                  src="node_modules/bootstrap-icons/icons/eye-slash-fill.svg"
-                  alt=""
-                  class="eye-slash-fill d-none"
-                  id="confirm-password_eye-slash-fill"
-                />
-              </div>
+                <i class="bi bi-eye-slash text-primary togglePassword"></i>
               <small class="text-danger"></small>
             </div>
           </div>

@@ -7,13 +7,9 @@ const confirmPasswordEl = document.getElementById('confirm_password')
 const checkBoxEl = document.getElementById('accept')
 const button = document.querySelector('button')
 const togglePassword = document.getElementsByClassName('togglePassword')
-const passwordEye = document.getElementById('password_eye-fill')
-const passwordEyeSlash = document.getElementById('password_eye-slash-fill')
-const confirmPasswordEye = document.getElementById('confirm-password_eye-fill')
-const confirmPasswordEyeSlash = document.getElementById('confirm-password_eye-slash-fill')
 const checkboxBox = document.querySelector('.checkbox_box')
 const signupText = document.querySelector('.sign-up')
-console.log(signupText);
+console.log(togglePassword);
 
 form.addEventListener('submit', e => {
     // prevent the form from submitting
@@ -175,12 +171,10 @@ const checkBox = () => {
     let valid = false
 
     if (checkBoxEl.checked == false) {
-        // showError(checkboxBox, signupText.textContent = 'You must agree to the terms first')
-        checkboxBox.classList.add('border-danger')
         signupText.textContent = 'You must agree to the terms first'
     } else {
         checkboxBox.classList.remove('border-danger')
-        signupText.textContent = "Signing up for an account means you agree to the Privacy Policy \n and Terms of Service."
+        signupText.innerHTML = "Signing up for an account means you agree to the Privacy Policy <br/> and Terms of Service."
         valid = true
     }
     return valid
@@ -192,8 +186,7 @@ togglePassword[0].addEventListener('click', () => {
     passwordEl.setAttribute('type', type)
 
     // toggle the icon
-    passwordEye.classList.toggle('d-none')
-    passwordEyeSlash.classList.toggle('d-none')
+    togglePassword[0].classList.toggle('bi-eye')
 })
 
 togglePassword[1].addEventListener('click', () => {
@@ -202,6 +195,5 @@ togglePassword[1].addEventListener('click', () => {
     confirmPasswordEl.setAttribute('type', type)
 
     // toggle the icon
-    confirmPasswordEye.classList.toggle('d-none')
-    confirmPasswordEyeSlash.classList.toggle('d-none')
+    togglePassword[1].classList.toggle('bi-eye')
 })

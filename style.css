@@ -1,5 +1,6 @@
 .logo {
-  font-weight: 700;
+  /* font-weight: 700; */
+  width: 50%;
 }
 
 label {
@@ -90,7 +91,7 @@ p {
   position: relative;
 }
 
-.password_input img {
+.password_input i {
   position: absolute;
   top: 20px;
   right: 15px;
